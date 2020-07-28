@@ -23,7 +23,7 @@ namespace ConnectFour
         /// <summary>
         /// eventhandler that runs the code after every piece being set
         /// </summary>
-        /// <param name="squares"></param> The squares to check on the board
+        /// <param name="squares"></param> The number of squares on the board
         /// <param name="boardSize"></param> The actual size of the board
         /// <param name="winLength"></param> The length required to win with
         /// <param name="wonXPos"></param> When a win is found, this contains the x-coordinates of the winning pieces
@@ -38,7 +38,15 @@ namespace ConnectFour
             return result;
         }
 
-        //checks for horizontal win conditions
+        /// <summary>
+        /// Checks for horizontal win conditions
+        /// </summary>
+        /// <param name="squares"></param> The number of squares on the board
+        /// <param name="boardSize"></param> 
+        /// <param name="winLength"></param>
+        /// <param name="wonXPos"></param>
+        /// <param name="wonYPos"></param>
+        /// <returns></returns>
         private static bool CheckHorizontal(Colors[,] squares, Size boardSize, int winLength, ref int[] wonXPos, ref int[] wonYPos)
         {
             //returns if checkHorizontal is false stopping this codeblock from proceeding after a winstate is detected
@@ -291,7 +299,7 @@ namespace ConnectFour
 
             for (; x > winLength -2; x--)
             {
-                for (int offset = 0; x - offset > winLength; offset++)
+                for (int offset = 0; x - offset > winLength -2; offset++)
                 {
                     var current = squares[x - offset, y + offset];
 
